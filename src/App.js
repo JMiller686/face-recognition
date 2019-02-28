@@ -7,6 +7,11 @@ import ImageLinkForm from './components/ImageLinkForm/ImageLinkForm';
 import './App.css';
 import 'tachyons';
 
+
+const Clarifai = require('clarifai');
+const app = new Clarifai.App({
+ apiKey: '45b30c9be7ae4915b4dd062e711d415c'
+});
 const particlesOptions = {
   particles: {
     number: {
@@ -118,6 +123,14 @@ class App extends Component {
   }
 
   onSubmit = () => {
+    app.models.predict("45b30c9be7ae4915b4dd062e711d415c", `${this.state.input}`).then(
+      function(response) {
+        // do something with response
+      },
+      function(err) {
+        // there was an error
+      }
+    );
     console.log('click');
   }
 
