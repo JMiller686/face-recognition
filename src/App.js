@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Particles from 'react-particles-js';
+import Clarifai from 'clarifai';
 import Navigation from './components/Navigation/Navigation';
 import Logo from './components/Logo/Logo';
 import Rank from './components/Rank/Rank';
@@ -8,10 +9,10 @@ import './App.css';
 import 'tachyons';
 
 
-const Clarifai = require('clarifai');
-const app = new Clarifai.App({
- apiKey: '45b30c9be7ae4915b4dd062e711d415c'
+const clarifai = new Clarifai.App({
+ apiKey: '7752ae14f5854893b8167c037ca5e045'
 });
+
 const particlesOptions = {
   particles: {
     number: {
@@ -98,7 +99,7 @@ const particlesOptions = {
       grab: {
         distance: 200,
         line_linked: {
-          opacity: 1
+          opacity: 0.75 
         }
       },
       repulse: {
@@ -123,15 +124,16 @@ class App extends Component {
   }
 
   onSubmit = () => {
-    app.models.predict("45b30c9be7ae4915b4dd062e711d415c", `${this.state.input}`).then(
+    clarifai.models.predict("a403429f2ddf4b49b307e318f00e528b", `${this.state.input}`).then(
       function(response) {
         // do something with response
+        console.log(response);
       },
       function(err) {
         // there was an error
+        console.log(err);
       }
     );
-    console.log('click');
   }
 
   render() {
