@@ -141,6 +141,10 @@ class App extends Component {
     this.setState({box:box});
   }
 
+  onRouteChange = () => {
+    this.setState({route: 'home'});
+  }
+
   onInputChange = (event) => {
     this.setState({input: event.target.value});
   }
@@ -166,7 +170,7 @@ class App extends Component {
         <Navigation/>
         <Logo />
       { this.state.route === 'signin' ? 
-          <Signin /> : 
+          <Signin onRouteChange={this.onRouteChange}/> : 
           <div>
             <Rank />
             <ImageLinkForm onInputChange={this.onInputChange} onSubmit={this.onSubmit}/>
