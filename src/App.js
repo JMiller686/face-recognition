@@ -6,6 +6,7 @@ import Logo from './components/Logo/Logo';
 import Rank from './components/Rank/Rank';
 import ImageLinkForm from './components/ImageLinkForm/ImageLinkForm';
 import FaceRecognition from './components/FaceRecognition/FaceRecognition';
+import Signin from './components/Signin/Signin'
 import './App.css';
 import 'tachyons';
 
@@ -163,6 +164,7 @@ class App extends Component {
         />
         <Navigation/>
         <Logo />
+        <Signin />
         <Rank />
         <ImageLinkForm onInputChange={this.onInputChange} onSubmit={this.onSubmit}/>
         <FaceRecognition imageUrl={this.state.imageUrl} box={this.state.box}/>
