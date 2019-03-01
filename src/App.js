@@ -6,7 +6,8 @@ import Logo from './components/Logo/Logo';
 import Rank from './components/Rank/Rank';
 import ImageLinkForm from './components/ImageLinkForm/ImageLinkForm';
 import FaceRecognition from './components/FaceRecognition/FaceRecognition';
-import Signin from './components/Signin/Signin'
+import Signin from './components/Signin/Signin';
+import Register from './components/Register/Register';
 import './App.css';
 import 'tachyons';
 
@@ -169,13 +170,16 @@ class App extends Component {
         />
         <Navigation onRouteChange={this.onRouteChange}/>
         <Logo />
-      { this.state.route === 'signin' ? 
-          <Signin onRouteChange={this.onRouteChange}/> : 
+      { this.state.route === 'home' ? 
           <div>
             <Rank />
             <ImageLinkForm onInputChange={this.onInputChange} onSubmit={this.onSubmit}/>
             <FaceRecognition imageUrl={this.state.imageUrl} box={this.state.box}/>
           </div>
+          : (this.state.route === 'signin') ?
+          <Signin onRouteChange={this.onRouteChange}/> :
+          <Register />
+          
       }
       </div>
     );
