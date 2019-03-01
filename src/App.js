@@ -141,8 +141,8 @@ class App extends Component {
     this.setState({box:box});
   }
 
-  onRouteChange = () => {
-    this.setState({route: 'home'});
+  onRouteChange = (route) => {
+    this.setState({route: route});
   }
 
   onInputChange = (event) => {
@@ -167,7 +167,7 @@ class App extends Component {
       <Particles className="particles"
           params={particlesOptions}
         />
-        <Navigation/>
+        <Navigation onRouteChange={this.onRouteChange}/>
         <Logo />
       { this.state.route === 'signin' ? 
           <Signin onRouteChange={this.onRouteChange}/> : 
