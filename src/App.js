@@ -215,6 +215,8 @@ class App extends Component {
             <ImageLinkForm onInputChange={this.onInputChange} onImageSubmit={this.onImageSubmit}/>
             <FaceRecognition imageUrl={imageUrl} box={box}/>
           </div>
+          : (this.state.route === 'signout') ?
+          <Signin loadUser={this.loadUser} onRouteChange={this.onRouteChange}/>
           : (this.state.route === 'signin') ?
           <Signin loadUser={this.loadUser} onRouteChange={this.onRouteChange}/> : 
           <Register loadUser={this.loadUser} onRouteChange={this.onRouteChange}/>
